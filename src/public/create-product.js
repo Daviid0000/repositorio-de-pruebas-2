@@ -1,29 +1,23 @@
 const elFile = document.querySelector('#submitfile')
 
-elFile.addEventListener('submit', async(e) =>{
+elFile.addEventListener('submit', (e) =>{
 e.preventDefault()
 
 const rutaArchivo = document.querySelector('#routeFile').value
 
-try {
-    const response = await fetch('/api/product/crear-producto', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ routeFile: rutaArchivo })
+    fetch('/api/product/crear-producto', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ routeFile: rutaArchivo })
+    })
+        
+        .then((res) => {
+            if (!res.ok) {
+                window.alert("Error al crear el Producto")
+                return
+            }
+            window.alert("Producto creado exitosamente")
+        })
     });
-
-    if (!response.ok) {
-        window.alert('Error al crear el producto');
-        return;
-    }
-
-    window.alert('Producto creado exitosamente');
-    window.location.href = '/'; // Cambia esto según tu necesidad
-
-} catch (error) {
-    console.error('Error:', error);
-    window.alert('Error al crear el producto');
-}
-})

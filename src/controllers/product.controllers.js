@@ -25,7 +25,7 @@ const { producto } = require("../models/product")
 //  Crear un producto
     const crearProducto = async (req, res) => {
         try{
-            const Producto = await Producto.create(req.body)
+            const Producto = await producto.create(req.body)
             res.status(201).json(Producto)
         } catch (error) {
             res.status(500).json({ message: error.message})
@@ -54,7 +54,7 @@ const { producto } = require("../models/product")
         }
     }
 
-module.exports =  {
+module.exports = {
     listarProductos, 
     listarUnProducto, 
     crearProducto, 
