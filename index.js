@@ -6,8 +6,9 @@ require('ejs');
 const app = express();
 
 //Routes
+app.use('/api', require('./src/router/routes.js'))
 app.use('/',require('./src/router/render.routes.js'));
-app.use('/api/product',require('./src/router/product.routes.js'));
+app.use('/api/product',require('./src/router/product.routes.js'));  
 
 
 //Middlewares

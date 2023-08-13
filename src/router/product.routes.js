@@ -10,10 +10,10 @@ const {
 
         const router = Router()
 
-router.get('/api/product/obtener-productos', listarProductos)
-router.post('/api/product/crear-producto', crearProducto)
-router.get('/api/product/:id', listarUnProducto)
-router.put('/api/product/:id', actualizarUnProducto)
-router.delete('/api/product/:id', eliminarUnProducto)
+router.get('/obtener-productos', listarProductos)
+router.post('/crear-producto', crearProducto)
+router.get('/:id', listarUnProducto)
+router.put('/:id', actualizarUnProducto)
+router.delete('/:id', eliminarUnProducto)
 
 module.exports = router
