@@ -1,0 +1,38 @@
+<%- include('partials/header') %>
+
+
+<a href="/crear-producto">Crear</a>
+
+<div class="container">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <% Products.forEach((Product)=>{ %>
+            <tr>
+                <th scope="row"> <%= Product.id %> </th>
+                <td><%= Product.name %></td>
+                <td><%= Product.price %></td>
+              </tr>
+            <% }); %>
+        </tbody>
+      </table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<%- include('partials/footer') %> 
